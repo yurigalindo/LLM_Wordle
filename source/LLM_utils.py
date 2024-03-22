@@ -24,4 +24,5 @@ class GameLogger():
         self.logs.append(("feedback",feedback))
     def compile_logs(self):
         df = pd.DataFrame(self.logs)
-        df.to_csv(self.dir + f"{len(listdir(self.dir))}.csv")
+        df.columns = ["source","text"]
+        df.to_csv(self.dir + f"game_{len(listdir(self.dir))}.csv",index=False)
