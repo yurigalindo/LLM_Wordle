@@ -6,12 +6,13 @@ def colors_to_prompt(guess,colors):
     for letter,color in zip(guess,colors):
         prompt = f"{letter} - "
         if color == "green":
-            prompt += "This letter is in the correct spot."
+            prompt += "This letter is in the correct spot. "
         elif color == "yellow":
-            prompt += "This letter is present in the word but in another spot."
+            prompt += "This letter is present in the word but in another spot. "
         else:
-            prompt += "This letter is not present in the word."
+            prompt += "This letter is not present in the word. "
         prompts.append(prompt)
+    prompts.append("Based on this new information and previous guesses, write a new 5-letter word:")
     return "".join(prompts)
 
 class GameLogger():
