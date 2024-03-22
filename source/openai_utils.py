@@ -1,9 +1,21 @@
 from openai import OpenAI
 import json
+import pandas as pd
+
+def game_to_prompt(game_num):
+  df = pd.read_csv(f"data/game_examples/game_{game_num}.csv")
+  prompt = []
+  for _,row in df.iterrows():
+    if row['source'] == "feedback":
+      prompt.append({"role": "user", "content": row['text']})
+    else:
+      prompt.append({"role": "assistant", "content": row['text']})
+  with open(f"data/game_examples/game_{game_num}.json","w") as file:
+    json.dump(prompt,file, indent=4)
 
 class OpenAiPlayer():
   def __init__(self):
-    with open("data/prompt_0.json") as file:
+    with open("data/prompt_1.json") as file:
       self.prompt = json.load(file)
     self.client = OpenAI()
   
