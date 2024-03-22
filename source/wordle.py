@@ -1,8 +1,10 @@
+import numpy as np
+
 def get_word():
     """Returns a 5-letter uppercase word as string
     """
-    # TODO: Add a dictionary of words
-    return "WEARY"
+    words = np.loadtxt("data/shmookey_common_5.txt", dtype=str)
+    return np.random.choice(words).upper()
 
 def check_answer(guess,correct_word):
     """Evaluates the guess, returning a list with the color for each letter
