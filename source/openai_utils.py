@@ -23,12 +23,5 @@ class OpenAiPlayer():
         break
     if len(guess) != 5:
       guess = "soare"
+    self.prompt.append({"role": "assistant", "content": guess})
     return guess
-
-# completion = client.chat.completions.create(
-#   model="gpt-3.5-turbo",
-#   messages=,
-#   max_tokens=15
-# )
-
-# print(completion.choices[0].message)
