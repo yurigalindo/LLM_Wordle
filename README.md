@@ -1,5 +1,6 @@
 # LLM Plays Wordle
 In this project, an LLM plays the game Wordle.
+Currently, basic functionality is working, but the model performs poorly. I am working on prompt engineering to improve the model.
 
 ## Roadmap
 
