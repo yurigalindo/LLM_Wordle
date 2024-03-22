@@ -11,10 +11,10 @@ def check_answer(guess,correct_word):
     for i,letter in enumerate(guess):
         if letter.upper() == correct_word[i]:
             colors.append("green")
-        elif letter.upper in correct_word:
+        elif letter.upper() in correct_word:
             colors.append("yellow")
         else:
-            colors.append("gray")
+            colors.append("dark_grey")
     return colors
 
 

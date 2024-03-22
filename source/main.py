@@ -1,12 +1,19 @@
-from openai import OpenAI
-client = OpenAI()
+from wordle import get_word, check_answer
+from termcolor import colored
 
-completion = client.chat.completions.create(
-  model="gpt-3.5-turbo",
-  messages=[
-    {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
-    {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
-  ]
-)
 
-print(completion.choices[0].message)
+def main():
+  word = get_word()
+  for _ in range(6):
+    guess = ""
+    while len(guess)!=5:
+      guess = input("Write a 5-letter word:")
+    colors = check_answer(guess,word)
+    text = [colored(guess[i],colors[i]) for i in range(5)]
+    text = "".join(text)
+    print(text)
+    if guess.upper() == word:
+       break
+
+if __name__ == '__main__':
+    main()
