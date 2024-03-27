@@ -14,8 +14,9 @@ def main():
   for _ in range(6):
     # Ask for guess
     guess = player.prompt_guess()
-    guess = guess.upper()
     logger.log_guess(guess)
+    guess = guess[-5:]
+    guess = guess.upper()
 
     # Check guess against word
     colors = check_answer(guess,word)
